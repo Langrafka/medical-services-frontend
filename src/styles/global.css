@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-urbanist), ui-sans-serif, system-ui, sans-serif;
+
+  --color-main-dark: #0D112A;
+  --color-brand-green: #58A07A;
+  --color-placeholder: #858585;
+
+  --background-image-brand-gradient: linear-gradient(130.27deg, #3B6E57 -6.09%, #72D4A8 127.58%);
+  --background-image-brand-hover: linear-gradient(130.27deg, rgba(59, 110, 87, 0.46) -6.09%, rgba(114, 212, 168, 0.46) 127.58%);
+  --background-image-brand-focus: linear-gradient(130.27deg, #3B6E57 -6.09%, #1E935E 127.58%);
+}
+
+@utility btn-primary {
+  @apply px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300 border-none cursor-pointer inline-block;
+  background-image: var(--background-image-brand-gradient);
+
+  &:hover {
+    background-image: var(--background-image-brand-hover);
+  }
+
+  &:active {
+    background-image: var(--background-image-brand-focus);
+  }
+}
+
+@utility nav-link {
+  @apply font-sans font-semibold text-[14px] transition-all duration-300;
+  
+  color: var(--color-main-dark);
+  line-height: 17px;
+
+  &:hover {
+    background-image: var(--background-image-brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@layer base {
+  ::placeholder {
+    color: var(--color-placeholder);
+  }
+}

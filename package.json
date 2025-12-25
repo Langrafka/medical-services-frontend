@@ -12,19 +12,21 @@
   "dependencies": {
     "next": "16.1.0",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "sass": "^1.97.1",
+    "tailwindcss": "^4.0.0-beta.9"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.0.0-beta.9",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.0",
     "husky": "^8.0.0",
+    "jsx-ast-utils": "^3.3.5",
     "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
-    "tailwindcss": "^4",
     "typescript": "^5"
   },
   "lint-staged": {
