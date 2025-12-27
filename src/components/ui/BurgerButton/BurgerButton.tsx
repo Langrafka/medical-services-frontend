@@ -12,7 +12,7 @@ export const BurgerButton: React.FC<BurgerButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className="relative w-10 h-10 flex items-center justify-center transition-colors duration-300 cursor-pointer"
+      className="relative w-10 h-10 flex items-center justify-center transition-colors duration-300 cursor-pointer text-main-dark"
       aria-label="Toggle menu"
     >
       <div
@@ -23,7 +23,7 @@ export const BurgerButton: React.FC<BurgerButtonProps> = ({
           height="24"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#0D112A"
+          stroke="currentColor"
           strokeWidth="2"
         >
           <path
@@ -42,7 +42,7 @@ export const BurgerButton: React.FC<BurgerButtonProps> = ({
           height="18"
           viewBox="0 0 24 18"
           fill="none"
-          stroke="#0D112A"
+          stroke="currentColor"
           strokeWidth="2"
         >
           <path

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { BurgerButton } from "../../ui/BurgerButton/BurgerButton";
 import { Logo } from "../Logo/Logo";
 import { MobileMenu } from "./MobileMenu";
@@ -8,6 +8,14 @@ import { MENU_LINKS } from "@/src/constants/navigation";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = useCallback(() => {
+    setIsOpen((prev) => !prev);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setIsOpen(false);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -42,16 +50,13 @@ export const Header = () => {
             </nav>
 
             <div className="relative z-50 md:hidden">
-              <BurgerButton
-                isOpen={isOpen}
-                onClick={() => setIsOpen(!isOpen)}
-              />
+              <BurgerButton isOpen={isOpen} onClick={toggleMenu} />
             </div>
           </div>
         </div>
       </div>
 
-      <MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <MobileMenu isOpen={isOpen} onClose={closeMenu} />
     </header>
   );
 };

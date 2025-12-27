@@ -1,6 +1,7 @@
 import { Urbanist } from "next/font/google";
 import { Header } from "../components/shared/Header/Header";
 import "../styles/global.css";
+import { Footer } from "../components/shared/Footer/Footer";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -14,11 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={urbanist.variable}>
-      <body className="font-sans antialiased bg-white text-dark-green">
+    <html lang="en" className={`${urbanist.variable} h-full`}>
+      <body className="font-sans antialiased bg-white text-main-dark min-h-screen flex flex-col">
         <Header />
-        <main>{children}</main>
-        {/* Footer */}
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );
