@@ -1,11 +1,15 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 
 type Props = {
-  isOpen: boolean;
+  isOpen?: boolean;
+  variant?: "default" | "white";
 };
 
-export const Logo: React.FC<Props> = ({ isOpen }) => {
+export const Logo: React.FC<Props> = ({ isOpen, variant = "default" }) => {
+  const isWhite = variant === "white";
+
   return (
     <Link
       href="/"
@@ -17,14 +21,18 @@ export const Logo: React.FC<Props> = ({ isOpen }) => {
         alt="Medical Solution Logo"
         width={140}
         height={40}
-        className={` ${isOpen ? "h-12 w-12" : "h-10 w-10"} md:h-10 md:w-35 duration-300 object-contain mr-3`}
+        className={`${isOpen ? "h-12 w-12" : "h-10 w-10"} md:h-10 md:w-35 duration-300 object-contain mr-3`}
         priority
       />
       <div className="flex flex-col leading-[0.9] gap-1.5 md:leading-none">
-        <span className="text-[14px] md:text-[24px] font-semibold text-main-dark tracking-tight">
+        <span
+          className={`text-[14px] md:text-[24px] font-semibold tracking-tight ${isWhite ? "text-white" : "text-main-dark"}`}
+        >
           Medical
         </span>
-        <span className="text-[14px] md:text-[24px] font-semibold text-main-dark tracking-tight">
+        <span
+          className={`text-[14px] md:text-[24px] font-semibold tracking-tight ${isWhite ? "text-white" : "text-main-dark"}`}
+        >
           Solution
         </span>
       </div>
