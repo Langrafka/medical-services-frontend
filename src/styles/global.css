@@ -8,20 +8,61 @@
   --color-placeholder: #858585;
 
   --background-image-brand-gradient: linear-gradient(130.27deg, #3B6E57 -6.09%, #72D4A8 127.58%);
-  --background-image-brand-hover: linear-gradient(130.27deg, rgba(59, 110, 87, 0.46) -6.09%, rgba(114, 212, 168, 0.46) 127.58%);
+
+
+  --background-image-brand-hover: linear-gradient(0deg, rgba(59, 110, 87, 1), rgba(59, 110, 87, 1));
+
   --background-image-brand-focus: linear-gradient(130.27deg, #3B6E57 -6.09%, #1E935E 127.58%);
 }
 
 @utility btn-primary {
-  @apply px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300 border-none cursor-pointer inline-block;
-  background-image: var(--background-image-brand-gradient);
+  @apply relative isolate px-6 py-3 rounded-lg text-white font-semibold transition-transform duration-300 cursor-pointer inline-block overflow-hidden border border-transparent;
 
-  &:hover {
-    background-image: var(--background-image-brand-hover);
+  background: transparent;
+
+  &::after {
+    content: "";
+    @apply absolute inset-0 -z-20 transition-all duration-300;
+    background-color: #3B6E57; 
+  }
+
+  &::before {
+    content: "";
+    @apply absolute inset-0 -z-10 transition-opacity duration-300 ease-in-out;
+    background-image: var(--background-image-brand-gradient);
+    opacity: 1;
+  }
+
+  &:hover::before {
+    opacity: 0;
   }
 
   &:active {
+    border-color: rgba(4, 220, 123, 1);
+  }
+
+  &:active::after {
     background-image: var(--background-image-brand-focus);
+  }
+  
+  &:active::before {
+    opacity: 0;
+  }
+}
+
+@utility btn-white {
+  @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300 border-none cursor-pointer inline-flex items-center justify-center shadow-md;
+  
+  background-color: white;
+  color: var(--color-brand-green);
+  
+  &:hover {
+    @apply scale-105 shadow-lg;
+    background-color: #f9fafb; 
+  }
+
+  &:active {
+    @apply scale-95 opacity-90;
   }
 }
 
