@@ -39,7 +39,7 @@ export const Services = () => {
         {services.map((service, index) => (
           <div
             key={index}
-            className="flex flex-col items-center rounded-xl pt-7 pb-4 w-[157px] h-[192px]"
+            className="flex flex-col items-center rounded-xl pt-7 pb-4 w-full"
             style={{
               backgroundImage: "var(--background-image-brand-gradient)",
               gap: "16px",
