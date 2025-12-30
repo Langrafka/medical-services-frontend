@@ -9,6 +9,11 @@ const urbanist = Urbanist({
   display: "swap",
 });
 
+export const metadata = {
+  title: "Medical Solution",
+  description: "Professional medical services",
+};
+
 export default function RootLayout({
   children,
 }: {
