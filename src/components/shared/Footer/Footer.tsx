@@ -1,23 +1,6 @@
+import { SOCIAL_LINKS } from "@/src/constants/links";
 import { Logo } from "../Logo/Logo";
 import Image from "next/image";
-
-const SOCIAL_LINKS = [
-  {
-    name: "WhatsApp",
-    href: "https://api.whatsapp.com/qr/V5VHLYWOIPAYO1?autoload=1&app_absent=0",
-    icon: "/icons/whatsapp.svg",
-  },
-  {
-    name: "Instagram",
-    href: "https://www.instagram.com/medical___solution/?igsh=OTQ0YjVqems0MnJ3",
-    icon: "/icons/instagram.svg",
-  },
-  {
-    name: "Facebook",
-    href: "https://www.facebook.com/people/Medical-Solution/100087263677603/",
-    icon: "/icons/facebook.svg",
-  },
-];
 
 export const Footer = () => {
   return (
@@ -25,7 +8,7 @@ export const Footer = () => {
       <div className="max-w-360 mx-auto">
         <Logo variant="white" />
 
-        <p className="mt-8 text-[16px] leading-[1.4] max-w-[320px] font-light text-gray-300">
+        <p className="mt-8 font-sans text-[16px] font-normal leading-[150%] tracking-[-0.02em] max-w-[320px] text-white">
           High-quality medical care tailored to every patient. Trusted
           professionals. Safety, comfort, and long-term health
         </p>

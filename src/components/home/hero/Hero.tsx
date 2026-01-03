@@ -26,7 +26,7 @@ export const Hero = () => {
 
       <div className="mt-6 min-w-83.75 w-full">
         <Button
-          href="#booking"
+          href="/booking"
           variant="primary"
           className="w-full text-[18px]"
         >

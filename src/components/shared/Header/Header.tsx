@@ -35,7 +35,7 @@ export const Header = () => {
           isOpen ? "shadow-none" : "shadow-sm"
         }`}
       >
-        <div className="mx-auto max-w-[1440px] px-5 py-[29px] flex items-center justify-between">
+        <div className="mx-auto max-w-360 px-5 py-7.25 flex items-center justify-between">
           <div className="shrink-0 relative z-50">
             <Logo isOpen={isOpen} />
           </div>
