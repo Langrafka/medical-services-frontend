@@ -25,7 +25,7 @@ export const ServiceItem = ({
         onClick={onToggle}
         className="w-full pb-6 flex items-center justify-between gap-17.5 text-left group transition-colors cursor-pointer border-b border-[#C0C0C0]"
       >
-        <span className="font-sans text-[18px] md:text-[20px] font-semibold text-main-dark">
+        <span className="font-sans text-xl md:text-[30px] font-semibold text-main-dark">
           {title}
         </span>
 

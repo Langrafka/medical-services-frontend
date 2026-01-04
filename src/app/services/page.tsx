@@ -12,7 +12,7 @@ export default function Services() {
   };
 
   return (
-    <section className="mt-8 mb-9.25 w-full px-5 max-w-7xl mx-auto">
+    <section className="mt-8 w-full px-5 max-w-7xl mx-auto">
       <h2 className="text-center font-sans text-2xl font-semibold text-main-dark">
         Services
       </h2>
