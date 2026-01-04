@@ -27,8 +27,8 @@ const services = [
 
 export const Services = () => {
   return (
-    <section className="mt-[56px] w-full px-5">
-      <h2 className="text-center font-sans text-2xl font-semibold text-[var(--color-main-dark)] mb-6">
+    <section className="mt-14 w-full px-5">
+      <h2 className="text-center font-sans text-2xl font-semibold text-main-dark mb-6">
         Services
       </h2>
 
@@ -45,7 +45,7 @@ export const Services = () => {
               gap: "16px",
             }}
           >
-            <div className="w-[48px] h-[48px] flex items-center justify-center">
+            <div className="w-12 h-12 flex items-center justify-center">
               <Image
                 src={service.icon}
                 alt={service.title}
@@ -59,11 +59,11 @@ export const Services = () => {
               {service.title}
             </h3>
 
-            <div className="w-[115px] h-10">
+            <div className="w-28.75 h-10">
               <Button
                 variant="white"
                 href={service.href}
-                className="w-full !py-2 !px-0 text-sm h-[40px]"
+                className="w-full py-2! px-0! text-sm h-10"
               >
                 Details
               </Button>
