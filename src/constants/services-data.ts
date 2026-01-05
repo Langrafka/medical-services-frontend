@@ -1,5 +1,6 @@
 export const SERVICES_DATA = [
   {
+    slug: "injections",
     title: "Injections",
     description:
       "Professional intramuscular, subcutaneous, and intravenous injections focused on safety and comfort.",
@@ -12,6 +13,7 @@ export const SERVICES_DATA = [
     note: "*Prices do not include consumables",
   },
   {
+    slug: "iv-infusions",
     title: "IV Infusions",
     description:
       "We provide intravenous infusions in accordance with all medical standards.",
@@ -19,9 +21,10 @@ export const SERVICES_DATA = [
     note: "*Prices do not include consumables",
   },
   {
+    slug: "dressings-catheters",
     title: "Dressings & Catheters",
     description:
-      "Treatment of wounds of various complexity, including postoperative care, Catheter replacement, enemas, and related procedures.",
+      "Treatment of wounds of various complexity, including postoperative care, catheter replacement, enemas, and related procedures.",
     prices: [
       { name: "Foley catheter placement at home (men)", price: "800 UAH" },
       { name: "Foley catheter placement (women)", price: "700 UAH" },
@@ -33,6 +36,7 @@ export const SERVICES_DATA = [
     note: "*Prices for catheter placement do not include the catheter itself. Consumables are paid separately.",
   },
   {
+    slug: "iv-wellness-therapy",
     title: "IV Wellness Therapy",
     description:
       "Wellness IV drips designed to improve overall health, restore energy, strengthen immunity, and support alcohol detox.",

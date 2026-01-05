@@ -11,7 +11,7 @@ interface ServiceItemProps {
   onToggle: () => void;
 }
 
-export const ServiceItem = ({
+const ServiceItem: React.FC<ServiceItemProps> = ({
   title,
   description,
   prices,
@@ -78,3 +78,5 @@ export const ServiceItem = ({
     </div>
   );
 };
+
+export default React.memo(ServiceItem);

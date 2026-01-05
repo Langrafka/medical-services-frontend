@@ -1,10 +1,9 @@
 "use client";
-
 import { useState, useEffect, useCallback } from "react";
-import { BurgerButton } from "../../ui/BurgerButton/BurgerButton";
-import { Logo } from "../Logo/Logo";
 import { MobileMenu } from "./MobileMenu";
 import { MENU_LINKS } from "@/src/constants/navigation";
+import { Logo } from "../Logo";
+import { BurgerButton } from "../../ui/BurgerButton";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

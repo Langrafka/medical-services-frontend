@@ -1,6 +1,6 @@
 import { SOCIAL_LINKS } from "@/src/constants/links";
-import { Logo } from "../Logo/Logo";
 import Image from "next/image";
+import { Logo } from "../Logo";
 
 export const Footer = () => {
   return (
