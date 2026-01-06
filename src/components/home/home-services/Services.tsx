@@ -1,29 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Button } from "../../ui/Button/Buttons";
-
-const services = [
-  {
-    title: "Injections",
-    icon: "/icons/injections.svg",
-    href: "/services/injections",
-  },
-  {
-    title: "IV Infusions",
-    icon: "/icons/infusions.svg",
-    href: "/services/infusions",
-  },
-  {
-    title: "Dressings",
-    icon: "/icons/dressings.svg",
-    href: "/services/dressings",
-  },
-  {
-    title: "Wellness Drips",
-    icon: "/icons/wellness.svg",
-    href: "/services/wellness",
-  },
-];
+import { SERVICES_UI } from "@/src/constants/services-ui";
 
 export const Services = () => {
   return (
@@ -36,7 +14,7 @@ export const Services = () => {
         className="grid grid-cols-2"
         style={{ rowGap: "21px", columnGap: "16px" }}
       >
-        {services.map((service, index) => (
+        {SERVICES_UI.map((service, index) => (
           <div
             key={index}
             className="flex flex-col items-center rounded-xl pt-7 pb-4 w-full"
@@ -62,7 +40,7 @@ export const Services = () => {
             <div className="w-28.75 h-10">
               <Button
                 variant="white"
-                href={service.href}
+                href={`/services?category=${service.slug}`}
                 className="w-full py-2! px-0! text-sm h-10"
               >
                 Details

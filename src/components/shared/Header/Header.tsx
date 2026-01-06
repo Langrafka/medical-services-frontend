@@ -1,10 +1,9 @@
 "use client";
-
 import { useState, useEffect, useCallback } from "react";
-import { BurgerButton } from "../../ui/BurgerButton/BurgerButton";
-import { Logo } from "../Logo/Logo";
 import { MobileMenu } from "./MobileMenu";
 import { MENU_LINKS } from "@/src/constants/navigation";
+import { Logo } from "../Logo";
+import { BurgerButton } from "../../ui/BurgerButton";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +34,7 @@ export const Header = () => {
           isOpen ? "shadow-none" : "shadow-sm"
         }`}
       >
-        <div className="mx-auto max-w-[1440px] px-5 py-[29px] flex items-center justify-between">
+        <div className="mx-auto max-w-360 px-5 py-7.25 flex items-center justify-between">
           <div className="shrink-0 relative z-50">
             <Logo isOpen={isOpen} />
           </div>

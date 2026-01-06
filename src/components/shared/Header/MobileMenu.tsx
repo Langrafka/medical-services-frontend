@@ -32,7 +32,7 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             <span className="text-main-dark transition-colors duration-300 group-hover:text-brand-green">
               {link.name}
             </span>
-            <div className="ml-[10px] opacity-0 scale-90 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:scale-100">
+            <div className="ml-2.5 opacity-0 scale-90 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:scale-100">
               <Image
                 src="/icons/heart.svg"
                 alt="heart"
