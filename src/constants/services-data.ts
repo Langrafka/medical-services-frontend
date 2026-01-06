@@ -31,9 +31,13 @@ export const SERVICES_DATA = [
       { name: "Suture removal (up to 9 sutures)", price: "600 UAH" },
       { name: "Suture removal (10 or more sutures)", price: "70 UAH / suture" },
       { name: "Nasogastric tube insertion", price: "1000 UAH" },
+      {
+        name: "Colostomy bag replacement",
+        price: "1000 UAH",
+      },
       { name: "Cleansing enema", price: "999 UAH" },
     ],
-    note: "*Prices for catheter placement do not include the catheter itself. Consumables are paid separately.",
+    note: "*Prices do not include catheters or colostomy bags. Consumables are paid separately.",
   },
   {
     slug: "iv-wellness-therapy",

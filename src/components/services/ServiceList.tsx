@@ -2,24 +2,36 @@
 
 import { SERVICES_DATA } from "@/src/constants/services-data";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ServiceItem from "./ServiceItem";
 
 export const ServiceList = () => {
-  const [manualIndex, setManualIndex] = useState<number | null>(null);
+  const [openIndices, setOpenIndices] = useState<number[]>([]);
 
   const searchParams = useSearchParams();
   const category = searchParams.get("category");
 
-  const autoIndex = category
-    ? SERVICES_DATA.findIndex((item) => item.slug === category)
-    : -1;
-
-  const openIndex =
-    manualIndex !== null ? manualIndex : autoIndex !== -1 ? autoIndex : null;
+  useEffect(() => {
+    if (category) {
+      const index = SERVICES_DATA.findIndex((item) => item.slug === category);
+      if (index !== -1) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setOpenIndices((prev) => {
+          if (prev.includes(index)) return prev;
+          return [...prev, index];
+        });
+      }
+    }
+  }, [category]);
 
   const toggleService = (index: number) => {
-    setManualIndex((prev) => (prev === index ? null : index));
+    setOpenIndices((prev) => {
+      if (prev.includes(index)) {
+        return prev.filter((i) => i !== index);
+      } else {
+        return [...prev, index];
+      }
+    });
   };
 
   return (
@@ -28,7 +40,7 @@ export const ServiceList = () => {
         <ServiceItem
           key={index}
           {...service}
-          isOpen={openIndex === index}
+          isOpen={openIndices.includes(index)}
           onToggle={() => toggleService(index)}
         />
       ))}

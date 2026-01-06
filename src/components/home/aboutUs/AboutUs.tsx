@@ -4,7 +4,7 @@ export const AboutUs = () => {
   return (
     <section className="flex flex-col items-center text-center px-5">
       <div className="relative mb-8">
-        <div className="rounded-full overflow-hidden">
+        <div className="rounded-full overflow-hidden border-4 border-white shadow-sm">
           <Image
             src="/images/owner.png"
             alt="Owner"
@@ -16,14 +16,16 @@ export const AboutUs = () => {
 
         <a
           href="tel:+380954136981"
-          className="absolute top-4 -right-25.75 w-18 h-18 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110 active:scale-95 cursor-pointer"
-          style={{ background: "var(--background-image-brand-gradient)" }}
+          className="fixed bottom-8 right-5 z-50 w-16 h-16 rounded-full flex items-center justify-center shadow-xl 
+                     bg-[#01b061] text-white cursor-pointer 
+                     transition-transform hover:scale-110 active:scale-95 
+                     animate-bounce-slow"
         >
           <Image
             src="/icons/phone.svg"
             alt="Call"
-            width={37}
-            height={37}
+            width={32}
+            height={32}
             className="brightness-0 invert"
           />
         </a>
