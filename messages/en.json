@@ -21,5 +21,14 @@
       "dressings-catheters": "Dressings",
       "iv-wellness-therapy": "Wellness IV Drips"
     }
+  },
+  "Navigation": {
+    "services": "Services",
+    "contacts": "Contacts",
+    "booking": "Booking online"
+  },
+  "Footer": {
+    "description": "High-quality medical care tailored to every patient. Trusted professionals. Safety, comfort, and long-term health.",
+    "rights": "©2026 All rights reserved"
   }
 }
