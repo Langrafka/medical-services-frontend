@@ -30,5 +30,10 @@
   "Footer": {
     "description": "High-quality medical care tailored to every patient. Trusted professionals. Safety, comfort, and long-term health.",
     "rights": "©2026 All rights reserved"
+  },
+  "Contacts": {
+    "title": "Contacts",
+    "ownerName": "Klushyn Vladyslav",
+    "ownerPosition": "Founder of Medical solution"
   }
 }

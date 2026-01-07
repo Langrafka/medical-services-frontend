@@ -1,15 +1,17 @@
 import { SOCIAL_LINKS } from "@/src/constants/links";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
 
 export default function Contacts() {
+  const t = useTranslations("Contacts");
   return (
     <section
       id="contacts"
       className="mt-8 mb-10 w-full px-5 md:px-10 lg:px-16 max-w-7xl mx-auto transition-all duration-300"
     >
       <h2 className="text-center font-sans text-2xl md:text-3xl font-semibold text-main-dark mb-8 md:mb-12">
-        Contacts
+        {t("title")}
       </h2>
 
       <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full gap-8 md:gap-4 lg:gap-10">
@@ -25,10 +27,10 @@ export default function Contacts() {
 
           <div className="flex flex-col">
             <h3 className="font-sans font-semibold text-[16px] md:text-[18px] text-main-dark leading-tight">
-              Klushyn Vladyslav
+              {t("ownerName")}
             </h3>
             <p className="font-sans text-[14px] md:text-[16px] text-main-dark font-semibold leading-tight mt-1 opacity-80">
-              Founder of Medical solution
+              {t("ownerPosition")}
             </p>
           </div>
         </div>
