@@ -1,13 +1,18 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import { Button } from "../../ui/Button/Buttons";
 import { SERVICES_UI } from "@/src/constants/services-ui";
+import { useTranslations } from "next-intl";
 
 export const Services = () => {
+  const t = useTranslations("Services");
+
   return (
     <section className="mt-14 w-full px-5">
       <h2 className="text-center font-sans text-2xl font-semibold text-main-dark mb-6">
-        Services
+        {t("title")}
       </h2>
 
       <div
@@ -34,7 +39,7 @@ export const Services = () => {
             </div>
 
             <h3 className="font-sans text-white font-semibold text-4 text-center leading-tight whitespace-nowrap">
-              {service.title}
+              {t(`items.${service.slug}`)}
             </h3>
 
             <div className="w-28.75 h-10">
@@ -43,7 +48,7 @@ export const Services = () => {
                 href={`/services?category=${service.slug}`}
                 className="w-full py-2! px-0! text-sm h-10"
               >
-                Details
+                {t("details")}
               </Button>
             </div>
           </div>

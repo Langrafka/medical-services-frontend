@@ -2,6 +2,7 @@
 
 import { MENU_LINKS } from "@/src/constants/navigation";
 import Image from "next/image";
+import { LocaleSwitcher } from "../LocaleSwitcher";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -46,12 +47,9 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       </nav>
 
       <div
-        className={`mt-auto flex gap-4 text-[20px] font-semibold transition-all duration-500 delay-400 pb-10 ${
-          isOpen ? "opacity-100" : "opacity-0"
-        }`}
+        className={`mt-auto transition-all duration-500 delay-400 pb-10 ${isOpen ? "opacity-100" : "opacity-0"}`}
       >
-        <button className="text-brand-green cursor-pointer">EN</button>
-        <button className="text-main-dark cursor-pointer">UA</button>
+        <LocaleSwitcher />
       </div>
     </div>
   );

@@ -1,0 +1,25 @@
+{
+  "Hero": {
+    "title": "Medical solution",
+    "description": "Patient-centered care tailored to your individual needs",
+    "button": "Book a service"
+  },
+  "AboutUs": {
+    "title": "About us",
+    "p1": "We follow a personalized, precise, preventive, and patient-centered approach to healthcare.",
+    "p2": "Our goal is to provide the highest standard of medical services, taking into account the individual needs of every patient.",
+    "p3": "Our team of qualified professionals offers a wide range of medical services, focused on accuracy, care, and long-term health.",
+    "p4": "Your safety and comfort are our top priorities.",
+    "p5": "Trust your health to our specialists and receive reliable, high-quality medical care."
+  },
+  "Services": {
+    "title": "Services",
+    "details": "Details",
+    "items": {
+      "injections": "Injections",
+      "iv-infusions": "IV Infusions",
+      "dressings-catheters": "Dressings",
+      "iv-wellness-therapy": "Wellness IV Drips"
+    }
+  }
+}
