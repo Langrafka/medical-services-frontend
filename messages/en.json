@@ -35,5 +35,82 @@
     "title": "Contacts",
     "ownerName": "Klushyn Vladyslav",
     "ownerPosition": "Founder of Medical solution"
+  },
+  "ServicesPage": {
+    "title": "Services",
+    "injections": {
+      "title": "Injections",
+      "description": "Professional intramuscular, subcutaneous, and intravenous injections focused on safety and comfort.",
+      "note": "*Prices do not include consumables",
+      "items": {
+        "catheter": "IV catheter placement",
+        "iv_inj": "Intravenous injection",
+        "im_inj": "Intramuscular injection",
+        "block": "Spermatic cord block"
+      }
+    },
+    "iv-infusions": {
+      "title": "IV Infusions",
+      "description": "We provide intravenous infusions in accordance with all medical standards.",
+      "note": "*Prices do not include consumables",
+      "items": {
+        "drip": "IV drip (medications not included)"
+      }
+    },
+    "dressings-catheters": {
+      "title": "Dressings & Catheters",
+      "description": "Treatment of wounds of various complexity, including postoperative care, catheter replacement, enemas, and related procedures.",
+      "note": "*Prices do not include catheters or colostomy bags. Consumables are paid separately.",
+      "items": {
+        "foley_m": "Foley catheter placement at home (men)",
+        "foley_w": "Foley catheter placement (women)",
+        "suture_9": "Suture removal (up to 9 sutures)",
+        "suture_10": "Suture removal (10 or more sutures)",
+        "nasogastric": "Nasogastric tube insertion",
+        "colostomy": "Colostomy bag replacement",
+        "enema": "Cleansing enema"
+      }
+    },
+    "iv-wellness-therapy": {
+      "title": "IV Wellness Therapy",
+      "description": "Wellness IV drips designed to improve overall health, restore energy, strengthen immunity, and support alcohol detox.",
+      "note": "*Prices do not include consumables",
+      "items": {
+        "detox": "Alcohol Detox",
+        "premium": "Premium Detox",
+        "rejuvenation": "Rejuvenation Therapy",
+        "immunity": "Immunity Boost",
+        "sports": "Sports Recovery",
+        "myers": "Myers’ Cocktail"
+      }
+    }
+  },
+
+  "Booking": {
+    "title": "Book a service",
+    "success": "Request sent successfully!",
+    "labels": {
+      "name": "Name",
+      "surname": "Surname",
+      "phone": "Phone number",
+      "description": "Description"
+    },
+    "placeholders": {
+      "name": "Enter your name",
+      "surname": "Enter your surname",
+      "phone": "+380",
+      "description": "Describe your request"
+    },
+    "button": {
+      "send": "Send",
+      "sending": "Sending..."
+    },
+    "validation": {
+      "required": "This field is required",
+      "too_short": "Too short (min {count} chars)",
+      "too_long": "Too long (max {count} chars)",
+      "invalid_format": "Invalid format",
+      "invalid_phone": "Enter a valid phone number (e.g., +380XXXXXXXXX)"
+    }
   }
 }

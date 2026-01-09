@@ -35,7 +35,7 @@ export const Services = () => {
                 alt={t(`items.${service.slug}`)}
                 width={48}
                 height={48}
-                className="w-full h-auto object-contain brightness-0 invert"
+                className="w-12 h-12 object-contain brightness-0 invert"
               />
             </div>
 
@@ -51,7 +51,7 @@ export const Services = () => {
               <Button
                 variant="white"
                 href={`/services?category=${service.slug}`}
-                className="w-full py-2! px-0! text-sm h-10"
+                className="w-full text-sm h-10"
               >
                 {t("details")}
               </Button>
