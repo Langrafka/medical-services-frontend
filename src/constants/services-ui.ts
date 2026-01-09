@@ -10,7 +10,7 @@ export const SERVICES_UI = [
     slug: "iv-infusions",
   },
   {
-    title: "Dressings & Catheters",
+    title: "Dressings",
     icon: "/icons/dressings.svg",
     slug: "dressings-catheters",
   },
