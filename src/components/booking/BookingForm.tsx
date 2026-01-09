@@ -2,10 +2,9 @@
 
 import { useState, ChangeEvent, FormEvent } from "react";
 import { ZodError } from "zod";
-import {
-  bookingFormSchema,
-  BookingFormData,
-} from "@/src/schemas/booking.schema";
+import { useTranslations } from "next-intl";
+import { bookingFormSchema } from "@/src/schemas/booking.schema";
+import { BookingFormData } from "@/src/types/BookingFormData";
 
 const initialFormData: BookingFormData = {
   name: "",
@@ -17,11 +16,30 @@ const initialFormData: BookingFormData = {
 type FormErrors = Partial<Record<keyof BookingFormData, string>>;
 
 export const BookingForm = () => {
+  const t = useTranslations("Booking");
   const [formData, setFormData] = useState<BookingFormData>(initialFormData);
   const [errors, setErrors] = useState<FormErrors>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const getErrorMessage = (
+    errorKey: string | undefined,
+    field: keyof BookingFormData,
+  ) => {
+    if (!errorKey) return undefined;
+
+    if (errorKey === "too_short") {
+      const minCount = field === "description" ? 10 : 2;
+      return t("validation.too_short", { count: minCount });
+    }
+    if (errorKey === "invalid_format") return t("validation.invalid_format");
+    if (errorKey === "invalid_phone") return t("validation.invalid_phone");
+    if (errorKey === "required" || errorKey.includes("Required"))
+      return t("validation.required");
+
+    return errorKey;
+  };
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -53,15 +71,10 @@ export const BookingForm = () => {
   const formatPhoneNumber = (value: string): string => {
     let cleaned = value.replace(/[^\d+]/g, "");
     if (cleaned.length > 0 && !cleaned.startsWith("+")) {
-      if (cleaned.startsWith("380")) {
-        cleaned = "+" + cleaned;
-      } else if (cleaned.startsWith("80")) {
-        cleaned = "+3" + cleaned;
-      } else if (cleaned.startsWith("0")) {
-        cleaned = "+38" + cleaned;
-      } else {
-        cleaned = "+380" + cleaned;
-      }
+      if (cleaned.startsWith("380")) cleaned = "+" + cleaned;
+      else if (cleaned.startsWith("80")) cleaned = "+3" + cleaned;
+      else if (cleaned.startsWith("0")) cleaned = "+38" + cleaned;
+      else cleaned = "+380" + cleaned;
     }
     if (cleaned.length > 13) cleaned = cleaned.slice(0, 13);
     return cleaned;
@@ -82,7 +95,6 @@ export const BookingForm = () => {
       setErrors({});
       setIsSubmitting(true);
 
-      console.log("Validated data:", validatedData);
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
       setSubmitSuccess(true);
@@ -114,19 +126,20 @@ export const BookingForm = () => {
     <div className="w-full">
       {submitSuccess && (
         <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl">
-          <p className="text-[#58A07A] text-center font-medium">
-            Request sent successfully!
+          <p className="text-brand-green text-center font-medium">
+            {t("success")}
           </p>
         </div>
       )}
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-6" noValidate>
+        {/* Поле Имя */}
         <div className="flex flex-col gap-4">
           <label
             htmlFor="name"
             className="font-sans font-medium text-main-dark"
           >
-            Name
+            {t("labels.name")}
           </label>
           <input
             type="text"
@@ -135,11 +148,13 @@ export const BookingForm = () => {
             value={formData.name}
             onChange={handleChange}
             onBlur={() => handleBlur("name")}
-            placeholder="Enter your name"
+            placeholder={t("placeholders.name")}
             className={getInputClass(!!(touched.name && errors.name))}
           />
           {touched.name && errors.name && (
-            <p className="text-sm text-red-500">{errors.name}</p>
+            <p className="text-sm text-red-500">
+              {getErrorMessage(errors.name, "name")}
+            </p>
           )}
         </div>
 
@@ -148,7 +163,7 @@ export const BookingForm = () => {
             htmlFor="surname"
             className="font-sans font-medium text-main-dark"
           >
-            Surname
+            {t("labels.surname")}
           </label>
           <input
             type="text"
@@ -157,11 +172,13 @@ export const BookingForm = () => {
             value={formData.surname}
             onChange={handleChange}
             onBlur={() => handleBlur("surname")}
-            placeholder="Enter your surname"
+            placeholder={t("placeholders.surname")}
             className={getInputClass(!!(touched.surname && errors.surname))}
           />
           {touched.surname && errors.surname && (
-            <p className="text-sm text-red-500">{errors.surname}</p>
+            <p className="text-sm text-red-500">
+              {getErrorMessage(errors.surname, "surname")}
+            </p>
           )}
         </div>
 
@@ -170,7 +187,7 @@ export const BookingForm = () => {
             htmlFor="phone"
             className="font-sans font-medium text-main-dark"
           >
-            Phone number
+            {t("labels.phone")}
           </label>
           <input
             type="tel"
@@ -179,11 +196,13 @@ export const BookingForm = () => {
             value={formData.phone}
             onChange={handlePhoneChange}
             onBlur={() => handleBlur("phone")}
-            placeholder="+380"
+            placeholder={t("placeholders.phone")}
             className={getInputClass(!!(touched.phone && errors.phone))}
           />
           {touched.phone && errors.phone && (
-            <p className="text-sm text-red-500">{errors.phone}</p>
+            <p className="text-sm text-red-500">
+              {getErrorMessage(errors.phone, "phone")}
+            </p>
           )}
         </div>
 
@@ -192,7 +211,7 @@ export const BookingForm = () => {
             htmlFor="description"
             className="font-sans font-medium text-main-dark"
           >
-            Description
+            {t("labels.description")}
           </label>
           <textarea
             id="description"
@@ -200,14 +219,16 @@ export const BookingForm = () => {
             value={formData.description}
             onChange={handleChange}
             onBlur={() => handleBlur("description")}
-            placeholder="Describe your request"
-            className={`${getInputClass(!!(touched.description && errors.description))} h-[209px] resize-none`}
+            placeholder={t("placeholders.description")}
+            className={`${getInputClass(!!(touched.description && errors.description))} h-52.25 resize-none`}
           />
           <div className="flex justify-between">
             {touched.description && errors.description && (
-              <p className="text-sm text-red-500">{errors.description}</p>
+              <p className="text-sm text-red-500">
+                {getErrorMessage(errors.description, "description")}
+              </p>
             )}
-            <p className="text-xs text-[#858585] ml-auto">
+            <p className="text-xs text-placeholder ml-auto">
               {formData.description.length}/500
             </p>
           </div>
@@ -216,9 +237,9 @@ export const BookingForm = () => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="btn-primary w-full h-[48px] flex items-center justify-center mt-2"
+          className="btn-primary w-full h-12 flex items-center justify-center mt-2"
         >
-          {isSubmitting ? "Sending..." : "Send"}
+          {isSubmitting ? t("button.sending") : t("button.send")}
         </button>
       </form>
     </div>

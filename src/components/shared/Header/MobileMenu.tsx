@@ -1,14 +1,15 @@
 "use client";
-
-import { MENU_LINKS } from "@/src/constants/navigation";
 import Image from "next/image";
+import { LocaleSwitcher } from "../LocaleSwitcher";
+import { LinksData } from "@/src/types/LinksData";
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  links: Array<LinksData>;
 }
 
-export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
+export const MobileMenu = ({ isOpen, onClose, links }: MobileMenuProps) => {
   return (
     <div
       className={`fixed inset-0 z-40 md:hidden bg-white flex flex-col p-5 pt-40 transition-all duration-500 ease-in-out ${
@@ -18,9 +19,9 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       }`}
     >
       <nav className="flex flex-col gap-12">
-        {MENU_LINKS.map((link) => (
+        {links.map((link) => (
           <a
-            key={link.name}
+            key={link.id}
             href={link.href}
             onClick={onClose}
             className={`group flex items-center text-[24px] font-semibold transition-[transform,opacity] duration-500 ease-out ${
@@ -38,7 +39,7 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 alt="heart"
                 width={30}
                 height={27}
-                className="object-contain"
+                className="object-contain w-auto h-auto"
               />
             </div>
           </a>
@@ -46,12 +47,9 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       </nav>
 
       <div
-        className={`mt-auto flex gap-4 text-[20px] font-semibold transition-all duration-500 delay-400 pb-10 ${
-          isOpen ? "opacity-100" : "opacity-0"
-        }`}
+        className={`mt-auto transition-all duration-500 delay-400 pb-10 ${isOpen ? "opacity-100" : "opacity-0"}`}
       >
-        <button className="text-brand-green cursor-pointer">EN</button>
-        <button className="text-main-dark cursor-pointer">UA</button>
+        <LocaleSwitcher />
       </div>
     </div>
   );

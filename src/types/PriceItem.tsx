@@ -1,4 +1,4 @@
 export interface PriceItem {
-  name: string;
+  id: string;
   price: string;
 }

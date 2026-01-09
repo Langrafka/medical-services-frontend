@@ -38,8 +38,9 @@ export const ServiceList = () => {
     <div className="flex flex-col gap-8 mt-8">
       {SERVICES_DATA.map((service, index) => (
         <ServiceItem
-          key={index}
-          {...service}
+          key={service.slug}
+          slug={service.slug}
+          prices={service.prices}
           isOpen={openIndices.includes(index)}
           onToggle={() => toggleService(index)}
         />

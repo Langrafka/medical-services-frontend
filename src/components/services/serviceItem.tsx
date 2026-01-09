@@ -1,24 +1,24 @@
+"use client";
 import { PriceItem } from "@/src/types/PriceItem";
 import Image from "next/image";
 import React from "react";
+import { useTranslations } from "next-intl";
 
 interface ServiceItemProps {
-  title: string;
-  description: string;
+  slug: string;
   prices: PriceItem[];
-  note?: string;
   isOpen: boolean;
   onToggle: () => void;
 }
 
 const ServiceItem: React.FC<ServiceItemProps> = ({
-  title,
-  description,
+  slug,
   prices,
-  note,
   isOpen,
   onToggle,
-}: ServiceItemProps) => {
+}) => {
+  const t = useTranslations("ServicesPage");
+
   return (
     <div className="last:border-none">
       <button
@@ -26,19 +26,18 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
         className="w-full pb-6 flex items-center justify-between gap-17.5 text-left group transition-colors cursor-pointer border-b border-[#C0C0C0]"
       >
         <span className="font-sans text-xl md:text-[30px] font-semibold text-main-dark">
-          {title}
+          {t(`${slug}.title`)}
         </span>
 
         <div
-          className={`shrink-0 transition-transform duration-300 ${
-            isOpen ? "rotate-180" : "rotate-0"
-          }`}
+          className={`shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : "rotate-0"}`}
         >
           <Image
             src="/icons/arrow-down.svg"
-            alt="Arrow to open details"
-            width={14.5}
-            height={7.25}
+            alt="Toggle details"
+            width={14}
+            height={7}
+            className="h-auto w-auto"
           />
         </div>
       </button>
@@ -50,29 +49,26 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       >
         <div className="pb-6 pt-6">
           <p className="font-sans text-[16px] font-normal leading-[150%] tracking-[-0.02em] text-main-dark mb-6">
-            {description}
+            {t(`${slug}.description`)}
           </p>
           <ul className="flex flex-col gap-4">
-            {prices.map((item, i) => (
+            {prices.map((item) => (
               <li
-                key={i}
-                className="flex justify-between items-end border-b border-[#C0C0C0]  pb-4"
+                key={item.id}
+                className="flex justify-between items-end border-b border-[#C0C0C0] pb-4"
               >
-                <span className="font-sans text-[16px] font-semibold leading-[150%] tracking-normal text-main-dark">
-                  {item.name}
+                <span className="font-sans text-[16px] font-semibold text-main-dark">
+                  {t(`${slug}.items.${item.id}`)}
                 </span>
-
-                <span className="font-sans text-[16px] font-semibold leading-[150%] tracking-normal text-main-dark whitespace-nowrap ml-4">
+                <span className="font-sans text-[16px] font-semibold text-main-dark whitespace-nowrap ml-4">
                   {item.price}
                 </span>
               </li>
             ))}
           </ul>
-          {note && (
-            <p className="mt-4 font-sans text-4 font-normal leading-[150%] tracking-[-0.02em] text-main-dark">
-              {note}
-            </p>
-          )}
+          <p className="mt-4 font-sans text-sm font-normal text-main-dark opacity-70">
+            {t(`${slug}.note`)}
+          </p>
         </div>
       </div>
     </div>

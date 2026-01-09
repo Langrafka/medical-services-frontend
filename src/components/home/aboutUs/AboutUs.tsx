@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export const AboutUs = () => {
+  const t = useTranslations("AboutUs");
+
   return (
     <section className="flex flex-col items-center text-center px-5">
       <div className="relative mb-8">
@@ -31,31 +34,20 @@ export const AboutUs = () => {
         </a>
       </div>
 
-      <h2 className="text-main-dark text-[24px] font-bold mb-6">About us</h2>
+      <h2 className="text-main-dark text-[24px] font-bold mb-6">
+        {t("title")}
+      </h2>
 
       <div className="flex flex-col gap-5 text-main-dark text-[16px] leading-normal tracking-[-0.02em] font-normal">
-        <p>
-          We follow a personalized, precise, preventive, and patient-centered
-          approach to healthcare.
-        </p>
-
-        <p>
-          Our goal is to provide the highest standard of medical services,
-          taking into account the individual needs of every patient.
-        </p>
+        <p>{t("p1")}</p>
+        <p>{t("p2")}</p>
 
         <div className="flex flex-col gap-1">
-          <p>
-            Our team of qualified professionals offers a wide range of medical
-            services, focused on accuracy, care, and long-term health.
-          </p>
-          <p>Your safety and comfort are our top priorities.</p>
+          <p>{t("p3")}</p>
+          <p>{t("p4")}</p>
         </div>
 
-        <p>
-          Trust your health to our specialists and receive reliable,
-          high-quality medical care.
-        </p>
+        <p>{t("p5")}</p>
       </div>
     </section>
   );

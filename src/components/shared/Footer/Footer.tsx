@@ -1,16 +1,17 @@
 import { SOCIAL_LINKS } from "@/src/constants/links";
 import Image from "next/image";
 import { Logo } from "../Logo";
+import { useTranslations } from "next-intl";
 
 export const Footer = () => {
+  const t = useTranslations("Footer");
   return (
     <footer className="bg-[#0A150E] text-white mt-14 pt-4.5 px-5 pb-10">
       <div className="max-w-360 mx-auto">
         <Logo variant="white" />
 
         <p className="mt-8 font-sans text-[16px] font-normal leading-[150%] tracking-[-0.02em] max-w-[320px] text-white">
-          High-quality medical care tailored to every patient. Trusted
-          professionals. Safety, comfort, and long-term health
+          {t("description")}
         </p>
 
         <div className="flex gap-6 mt-10">
@@ -35,9 +36,7 @@ export const Footer = () => {
 
         <div className="h-px w-full bg-white/20 mt-8" />
 
-        <p className="mt-5 text-[14px] text-gray-400">
-          ©2025 All rights reserved
-        </p>
+        <p className="mt-5 text-[14px] text-gray-400">{t("rights")}</p>
       </div>
     </footer>
   );
